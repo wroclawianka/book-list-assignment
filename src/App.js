@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import { BookList } from "./components/BooksList/BookList";
-import { BookDetail } from "./components/BookDetail/BookDetail";
+import { BooksList } from "./components/BooksList/BooksList";
+import { BookDetails } from "./components/BookDetails/BookDetails";
 import { AddBook } from "./components/AddBook/AddBook";
 
 class App extends React.Component {
@@ -15,10 +15,10 @@ class App extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col col-xs-10 col-xs-offset-1">
-              <BookList/>
+              <BooksList/>
             </div>
             <div className="col col-xs-10 col-xs-offset-1">
-            <BookDetail/>
+            <BookDetails/>
             </div>
           </div>
         </div>
