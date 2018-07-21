@@ -1,14 +1,14 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import "./BooksList.css";
-// import { ApiService } from '../../services/ApiService/ApiService'
+import { ApiService } from '../../services/ApiService/ApiService'
 import { Book } from "./Book";
 
 export class BooksList extends React.Component {
 
     constructor() {
         super()
-        // this.apiService = new ApiService();
+        this.apiService = new ApiService();
         this.state = { books: []};
     }
 
@@ -17,11 +17,8 @@ export class BooksList extends React.Component {
     }
     
     fetchBookList() {
-        let init = {};
-        let apiUrl = "http://localhost:3001"
         let bookList = []
-        fetch(`${apiUrl}/items`, init)
-        .then(response => response.json())
+        this.apiService.fetchBooksList()
         .then(items => {
             items.forEach(item => {
                 bookList.push(
