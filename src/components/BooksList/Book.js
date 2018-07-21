@@ -1,7 +1,7 @@
 export class Book {
-    constructor(id, title) {
+    constructor(id, link, title) {
         this.id = id;
-        this.link = `/api/v1/items/${id}`;
+        this.link = link;
         this.title = title;
     }
 }
