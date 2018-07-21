@@ -1,10 +1,9 @@
 export class ApiService {
-    apiUrl = "http://localhost:3001"
+    apiUrl = "http://localhost:3001/api/v1"
 
     fetchBooksList() {
         let init = {};
-        let apiUrl = "http://localhost:3001"
-        return fetch(`${apiUrl}/items`, init)
+        return fetch(`${this.apiUrl}/items`, init)
         .then(response => response.json());
     }
 }
