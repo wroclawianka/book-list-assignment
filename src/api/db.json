@@ -1,0 +1,28 @@
+{
+    "items": [{
+            "id": 8,
+            "image": "https://source.unsplash.com/random/300x300?book",
+            "link": "/api/v1/items/8",
+            "title": "Steppenwolf",
+            "author": "Herman Hesse",
+            "price": 5.99
+
+        },
+        {
+            "id": 33,
+            "image": "https://source.unsplash.com/random/300x300?book",
+            "link": "/api/v1/items/33",
+            "title": "The Wizard of Oz",
+            "author": " L. Frank Baum",
+            "price": 3.40
+        },
+        {
+            "id": 45,
+            "image": "https://source.unsplash.com/random/300x300?book",
+            "link": "/api/v1/items/45",
+            "title": "Clean Code",
+            "author": "Robert Martin ",
+            "price": 21.00
+        }
+    ]
+}
