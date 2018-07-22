@@ -23,6 +23,7 @@ export class AddBook extends React.Component {
 
     handleSubmit(event) {
         this.addBook();
+        event.preventDefault();
     }
     
     addBook() {
