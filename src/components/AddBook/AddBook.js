@@ -23,7 +23,6 @@ export class AddBook extends React.Component {
 
     handleSubmit(event) {
         this.addBook();
-        event.preventDefault();
     }
     
     addBook() {
@@ -37,7 +36,7 @@ export class AddBook extends React.Component {
     
     render() {
         return (
-        <div>
+        <div className="section">
             <h3>Add book</h3>
             <hr/>
             <form className="form-group" onSubmit={this.handleSubmit}>
@@ -47,7 +46,7 @@ export class AddBook extends React.Component {
                 <input className="form-control" type="text" name="author" onChange={this.handleChange}/></label>
                 <label>Price:
                 <input className="form-control" type="number" name="price" onChange={this.handleChange}/></label>
-                <hr/>
+                <br/>
                 <input className="btn btn-primary" type="submit" value="Submit"/>
             </form> 
         </div>

@@ -42,7 +42,7 @@ export class BookDetails extends React.Component {
 
         return (
         <div>
-            <div className="book-details">
+            <div className="section">
             <h3>Book Details</h3>
             <hr/>
             {content}

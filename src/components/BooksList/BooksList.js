@@ -36,7 +36,7 @@ export class BooksList extends React.Component {
 
     render() {
          return (
-        <div>
+        <div className="section">
             <h3>List of your books</h3>
             <hr/>
             <div>
