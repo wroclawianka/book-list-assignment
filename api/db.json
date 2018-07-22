@@ -2,7 +2,7 @@
   "items": [
     {
       "id": 1,
-      "image": "https://source.unsplash.com/random/200x300?book",
+      "image": "https://source.unsplash.com/random/200x250?book",
       "link": "/api/v1/items/1",
       "title": "Steppenwolf",
       "author": "Herman Hesse",
@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "image": "https://source.unsplash.com/random/200x300?reading",
+      "image": "https://source.unsplash.com/random/200x250?reading",
       "link": "/api/v1/items/2",
       "title": "The Wizard of Oz",
       "author": " L. Frank Baum",
@@ -18,7 +18,7 @@
     },
     {
       "id": 3,
-      "image": "https://source.unsplash.com/random/200x300?literature",
+      "image": "https://source.unsplash.com/random/200x250?literature",
       "link": "/api/v1/items/3",
       "title": "Clean Code",
       "author": "Robert Martin ",
