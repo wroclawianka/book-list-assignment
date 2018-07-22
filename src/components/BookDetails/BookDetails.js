@@ -38,7 +38,7 @@ export class BookDetails extends React.Component {
             <p className="author">{this.state.book.author}</p>
             <p className="price">{this.state.book.price}</p>
         </div>)
-        let content = (this.state.book == '') ? selectTheBook : details; 
+        let content = (this.state.book === '') ? selectTheBook : details; 
 
         return (
         <div>
