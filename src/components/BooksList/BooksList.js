@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from 'prop-types';
 import "./BooksList.css";
 import { ApiService } from '../../services/ApiService/ApiService'
 import { Book } from "./Book";
@@ -31,14 +30,22 @@ export class BooksList extends React.Component {
         })
       }
 
+    onBookSelect(bookLink) {
+        this.props.bookLink(bookLink);
+    }
+
     render() {
-        return (
+         return (
         <div>
             <h3>List of your books</h3>
             <div>
                 <ul>
-                    {this.state.books.map(function(book){
-                        return (<li key={book.id}><a href={book.link}>{book.title}</a></li>)
+                    {this.state.books.map((book) => {
+                        return (
+                        <li onClick={() => this.onBookSelect(book.link)} className="item" key={book.id}>
+                            {book.title}
+                        </li>
+                    )
                     })}
                 </ul>
             </div>

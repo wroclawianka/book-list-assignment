@@ -1,7 +1,15 @@
 h3 {
-  padding-left: 1.4em;
+    padding-left: 1.4em;
 }
 
 ul {
     list-style-type: none;
-  }
+}
+
+li.item {
+    cursor: pointer;
+}
+
+li.item:hover {
+    text-decoration: underline;
+}
