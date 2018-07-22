@@ -1,15 +1,24 @@
 export class ApiService {
-    apiUrl = "http://localhost:3001/api/v1"
+    apiUrl = "http://localhost:3001"
     headers = {
         "Content-Type": "application/json"
     }
 
     fetchBooksList() {
-        let init = {
+        let options = {
             method: "GET",
             headers: this.headers
         };
-        return fetch(`${this.apiUrl}/items`, init)
+        return fetch(`${this.apiUrl}/api/v1/items`, options)
+        .then(response => response.json());
+    }
+
+    fetchBookDetails(link) {
+        let options = {
+            method: "GET",
+            headers: this.headers
+        };
+        return fetch(this.apiUrl + link, options)
         .then(response => response.json());
     }
 }
