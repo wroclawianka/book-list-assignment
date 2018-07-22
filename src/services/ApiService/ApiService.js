@@ -22,13 +22,13 @@ export class ApiService {
         .then(response => response.json());
     }
 
-    addBook(id, data) {
+    addBook(data) {
         let options = {
-            method: "PUT",
+            method: "POST",
             body: JSON.stringify(data),
             headers: this.headers
         };
-        return fetch(`${this.apiUrl}/api/v1/items/${id}`, options)
+        return fetch(`${this.apiUrl}/api/v1/items`, options)
         .then(res => {
             return res;
         }).catch(err => err);

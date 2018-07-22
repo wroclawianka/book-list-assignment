@@ -1,6 +1,5 @@
 export class Book {
-    constructor(id, image, title, author, price) {
-        this.id = id;
+    constructor(image, title, author, price) {
         this.image = image;
         this.title = title;
         this.author = author;

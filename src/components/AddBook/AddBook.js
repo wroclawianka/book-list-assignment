@@ -25,14 +25,12 @@ export class AddBook extends React.Component {
     }
     
     addBook() {
-        let id = 4
-        let image = "https://source.unsplash.com/random/300x300?book";
+        let image = "https://source.unsplash.com/2zDw14yCYqk/200x250";
         let title = this.state.title;
         let author = this.state.author;
         let price = this.state.price;
-        let book = new Book(id, image, title, author, price);
-        console.log(book);
-        this.apiService.addBook(id, book);
+        let book = new Book(image, title, author, price);
+        this.apiService.addBook(book);
     }
     
     render() {
