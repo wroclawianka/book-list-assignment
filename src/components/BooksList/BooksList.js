@@ -38,6 +38,7 @@ export class BooksList extends React.Component {
          return (
         <div>
             <h3>List of your books</h3>
+            <hr/>
             <div>
                 <ul className="items">
                     {this.state.books.map((book) => {
@@ -52,5 +53,4 @@ export class BooksList extends React.Component {
         </div>
         )
     }
-
 }

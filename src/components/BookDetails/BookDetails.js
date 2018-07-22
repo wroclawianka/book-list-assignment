@@ -17,9 +17,9 @@ export class BookDetails extends React.Component {
     }
 
     fetchBookDetails(bookLink) {
-        this.apiService.fetchBookDetails(bookLink)
+        this.apiService
+        .fetchBookDetails(bookLink)
         .then(item => {
-
             let newBook = new Book(item.id, item.image, item.title, item.author, item.price.toFixed(2))
             this.setState({
                 book : newBook 
@@ -33,10 +33,10 @@ export class BookDetails extends React.Component {
         );
         let details = (
         <div> 
-            <img src={this.state.book.image} alt={this.state.book.title}/>     
             <h4 className="title">{this.state.book.title}</h4>
             <p className="author">{this.state.book.author}</p>
             <p className="price">{this.state.book.price}</p>
+            <div><img src={this.state.book.image} alt={this.state.book.title}/></div>     
         </div>)
         let content = (this.state.book === '') ? selectTheBook : details; 
 
@@ -44,6 +44,7 @@ export class BookDetails extends React.Component {
         <div>
             <div className="book-details">
             <h3>Book Details</h3>
+            <hr/>
             {content}
             </div>
         </div>

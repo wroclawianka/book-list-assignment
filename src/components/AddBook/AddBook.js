@@ -16,7 +16,9 @@ export class AddBook extends React.Component {
     }
 
     handleChange(event) {
-        this.setState({ [event.target.name]: event.target.value });
+        this.setState({ 
+            [event.target.name]: event.target.value 
+        });
       }
 
     handleSubmit(event) {
@@ -28,7 +30,7 @@ export class AddBook extends React.Component {
         let image = "https://source.unsplash.com/2zDw14yCYqk/200x250";
         let title = this.state.title;
         let author = this.state.author;
-        let price = parseInt(this.state.price);
+        let price = parseInt(this.state.price, 10);
         let book = new Book(image, title, author, price);
         this.apiService.addBook(book);
     }
@@ -37,6 +39,7 @@ export class AddBook extends React.Component {
         return (
         <div>
             <h3>Add book</h3>
+            <hr/>
             <form className="form-group" onSubmit={this.handleSubmit}>
                 <label>Title:
                 <input className="form-control" type="text" name="title" onChange={this.handleChange}/></label>
@@ -44,8 +47,6 @@ export class AddBook extends React.Component {
                 <input className="form-control" type="text" name="author" onChange={this.handleChange}/></label>
                 <label>Price:
                 <input className="form-control" type="number" name="price" onChange={this.handleChange}/></label>
-                {/* <label>Image Path:
-                <input className="form-control" type="number" name="image" /></label> */}
                 <hr/>
                 <input className="btn btn-primary" type="submit" value="Submit"/>
             </form> 

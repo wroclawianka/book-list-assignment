@@ -12,7 +12,7 @@ export class ApiService {
             headers: this.headers
         };
         return fetch(this.itemsUrl, options)
-        .then(response => response.json());
+            .then(response => response.json());
     }
 
     fetchBookDetails(path) {
@@ -21,7 +21,7 @@ export class ApiService {
             headers: this.headers
         };
         return fetch(this.apiUrl + path, options)
-        .then(response => response.json());
+            .then(response => response.json());
     }
 
     addBook(data) {
@@ -31,20 +31,19 @@ export class ApiService {
             headers: this.headers
         };
         return fetch(this.itemsUrl, options)
-        .then(response => response.json())
-        .then(data => this.updateLink(data.id)
-        ).catch(err => err);
+            .then(response => response.json())
+            .then(data => this.updateLink(data.id)).catch(err => err);
     }
-
 
     updateLink(id) {
         let link = `${this.itemsPath}/${id}`;
+        let body = `{"link" : "${link}"}`
         let options = {
             method: "PATCH",
-            body: `{"link" : "${link}"}`,
+            body: body,
             headers: this.headers
         };
         return fetch(`${this.itemsUrl}/${id}`, options)
-        .then(response => response.json());
+            .then(response => response.json());
     }
 }
