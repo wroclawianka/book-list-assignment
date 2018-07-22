@@ -28,7 +28,7 @@ export class AddBook extends React.Component {
         let image = "https://source.unsplash.com/2zDw14yCYqk/200x250";
         let title = this.state.title;
         let author = this.state.author;
-        let price = this.state.price;
+        let price = parseInt(this.state.price);
         let book = new Book(image, title, author, price);
         this.apiService.addBook(book);
     }
