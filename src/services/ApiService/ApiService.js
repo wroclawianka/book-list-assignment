@@ -21,4 +21,16 @@ export class ApiService {
         return fetch(this.apiUrl + link, options)
         .then(response => response.json());
     }
+
+    addBook(id, data) {
+        let options = {
+            method: "PUT",
+            body: JSON.stringify(data),
+            headers: this.headers
+        };
+        return fetch(`${this.apiUrl}/api/v1/items/${id}`, options)
+        .then(res => {
+            return res;
+        }).catch(err => err);
+    }
 }

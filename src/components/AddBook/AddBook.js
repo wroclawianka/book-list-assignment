@@ -1,9 +1,57 @@
 import React from "react";
+import { ApiService } from "../../services/ApiService/ApiService";
+import { Book } from "./Book"
 
 export class AddBook extends React.Component {
+    constructor() {
+        super();
+        this.apiService = new ApiService();
+        this.state = {
+            title: '',
+            author: '',
+            price: 0
+        }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({ [event.target.name]: event.target.value });
+      }
+
+    handleSubmit(event) {
+        this.addBook();
+        event.preventDefault();
+    }
+    
+    addBook() {
+        let id = 4
+        let image = "https://source.unsplash.com/random/300x300?book";
+        let title = this.state.title;
+        let author = this.state.author;
+        let price = this.state.price;
+        let book = new Book(id, image, title, author, price);
+        console.log(book);
+        this.apiService.addBook(id, book);
+    }
+    
     render() {
         return (
-        <p>I am add book!</p>
+        <div>
+            <h3>Add book</h3>
+            <form className="form-group" onSubmit={this.handleSubmit}>
+                <label>Title:
+                <input className="form-control" type="text" name="title" onChange={this.handleChange}/></label>
+                <label>Author:
+                <input className="form-control" type="text" name="author" onChange={this.handleChange}/></label>
+                <label>Price:
+                <input className="form-control" type="number" name="price" onChange={this.handleChange}/></label>
+                {/* <label>Image Path:
+                <input className="form-control" type="number" name="image" /></label> */}
+                <hr/>
+                <input className="btn btn-primary" type="submit" value="Submit"/>
+            </form> 
+        </div>
         )
     }
 }
