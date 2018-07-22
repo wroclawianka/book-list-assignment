@@ -1,4 +1,12 @@
-.book-details {
-    width: 50%;
-    margin: 0 auto;
+img {
+    padding: 10px 0;
+}
+
+.book-details{
+    display: inline-block
+}
+
+.price { 
+    font-size: 150%;
+    float: right;
 }

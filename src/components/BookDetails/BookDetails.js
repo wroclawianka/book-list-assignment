@@ -8,13 +8,7 @@ export class BookDetails extends React.Component {
         super(props);
         this.apiService = new ApiService();
         this.state = {
-            book : new Book(
-                    1, 
-                    "https://source.unsplash.com/2zDw14yCYqk/250x250",
-                     "Mistrz i Małgorzata",
-                     "Michaił Bułhakow", 
-                     10.20
-                    )
+            book : ''
         }
     }
 
@@ -25,7 +19,8 @@ export class BookDetails extends React.Component {
     fetchBookDetails(bookLink) {
         this.apiService.fetchBookDetails(bookLink)
         .then(item => {
-            let newBook = new Book(item.id, item.image, item.title, item.author, item.price)
+
+            let newBook = new Book(item.id, item.image, item.title, item.author, item.price.toFixed(2))
             this.setState({
                 book : newBook 
             })
@@ -33,14 +28,23 @@ export class BookDetails extends React.Component {
     }
 
     render() {
+        let selectTheBook = (
+        <p>Please, select the book to display</p>
+        );
+        let details = (
+        <div> 
+            <img src={this.state.book.image} alt={this.state.book.title}/>     
+            <h4 className="title">{this.state.book.title}</h4>
+            <p className="author">{this.state.book.author}</p>
+            <p className="price">{this.state.book.price}</p>
+        </div>)
+        let content = (this.state.book == '') ? selectTheBook : details; 
+
         return (
         <div>
             <div className="book-details">
             <h3>Book Details</h3>
-            <img src={this.state.book.image} alt=""/>     
-            <h4>{this.state.book.title}</h4>
-            <p>{this.state.book.author}</p>
-            <p>{this.state.book.price}</p>
+            {content}
             </div>
         </div>
         )
