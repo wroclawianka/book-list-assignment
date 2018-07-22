@@ -1,0 +1,4 @@
+{
+    "/api/v1/items": "/items",
+    "/api/v1/items/:id": "/items/:id"
+  }
