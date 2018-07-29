@@ -2,6 +2,7 @@
   "name": "book-list-assigment",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://wroclawianka.github.io/book-list-assigment",
   "dependencies": {
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
@@ -14,9 +15,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "start-mockapi": "json-server --watch api/db.json --port 3001 --routes api/routes.json"
+    "start-mockapi": "json-server --watch api/db.json --port 3001 --routes api/routes.json",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
-    "concurrently": "^3.6.0"
+    "concurrently": "^3.6.0",
+    "gh-pages": "^1.2.0"
   }
 }
