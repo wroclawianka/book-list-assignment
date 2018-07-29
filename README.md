@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/wroclawianka/book-list-assignment/master/react.png" height="150px"/>
+</p>
+
 # Book List Assignment
 
 Simple ReactJS application with a list of books. The application includes a list of books, book details and a possibility to add new book to the list. Application created for recruitment purposes.
@@ -20,6 +24,3 @@ Run dev mode
 ```
 npm run dev
 ```
-
-
-book-list-app.png
