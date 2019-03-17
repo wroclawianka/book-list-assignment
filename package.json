@@ -3,20 +3,23 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "firebase": "^5.9.0",
+    "re-base": "^4.0.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-router": "^4.3.1",
-    "react-scripts": "1.1.4"
+    "serve": "^10.1.2"
   },
   "scripts": {
-    "dev": "concurrently \"npm run start-mockapi\" \"react-scripts start\"",
-    "start": "npm run start-mockapi & react-scripts start",
+    "dev": "react-scripts start",
+    "start": "serve --single ./build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "start-mockapi": "json-server --watch api/db.json --port 3001 --routes api/routes.json"
   },
   "devDependencies": {
-    "concurrently": "^3.6.0"
+    "concurrently": "^3.6.0",
+    "react-scripts": "1.1.4"
   }
 }
