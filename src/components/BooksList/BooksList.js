@@ -19,6 +19,10 @@ export class BooksList extends React.Component {
         });
     }
 
+    componentWillUnmount() {
+        base.removeBinding(this.ref);
+    }
+
     onBookSelect(bookLink) {
         this.props.bookLink(bookLink);
     }
