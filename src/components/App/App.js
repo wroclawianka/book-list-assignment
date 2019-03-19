@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { ApiService } from '../../services/ApiService/ApiService'
+import base from "../../base";
 import { BooksList } from "./../BooksList/BooksList";
 import { BookDetails } from "./../BookDetails/BookDetails";
 import { AddBook } from "./../AddBook/AddBook";
@@ -9,7 +9,7 @@ import { Book } from "./Book";
 class App extends React.Component {
   constructor()  {
     super();
-    this.apiService = new ApiService();
+    // this.apiService = new ApiService();
     this.state = {
       books: [],
       bookLink: null
@@ -36,18 +36,10 @@ class App extends React.Component {
     
 
   fetchBookList() {
-    let bookList = []
-    this.apiService.fetchBooksList()
-    .then(items => {
-        items.forEach(item => {
-            bookList.push(
-                new Book(item.id, item.link, item.title)
-            )
-        });
-        this.setState({
-            books: bookList
-        })
-    })
+    this.ref = base.syncState("items", {
+      context: this,
+      state: 'books'
+    });
   }
 
   render() {
