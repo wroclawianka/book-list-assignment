@@ -9,7 +9,6 @@ import { Book } from "./Book";
 class App extends React.Component {
   constructor()  {
     super();
-    // this.apiService = new ApiService();
     this.state = {
       books: [],
       bookLink: null
