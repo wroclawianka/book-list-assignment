@@ -4,7 +4,6 @@ import base from "../../base";
 import { BooksList } from "./../BooksList/BooksList";
 import { BookDetails } from "./../BookDetails/BookDetails";
 import { AddBook } from "./../AddBook/AddBook";
-import { Book } from "./Book";
 
 class App extends React.Component {
   constructor()  {
