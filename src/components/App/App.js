@@ -23,6 +23,7 @@ class App extends React.Component {
 
   onAddBook(book){
     let bookList = this.state.books
+    book.id = this.state.books.length;
     bookList.push(book);
     this.setState({
       books: bookList
