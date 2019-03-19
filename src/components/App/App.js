@@ -1,54 +1,62 @@
 import React from 'react';
 import './App.css';
-import { ApiService } from '../../services/ApiService/ApiService'
+import base from "../../base";
 import { BooksList } from "./../BooksList/BooksList";
 import { BookDetails } from "./../BookDetails/BookDetails";
 import { AddBook } from "./../AddBook/AddBook";
-import { Book } from "./Book";
 
 class App extends React.Component {
   constructor()  {
     super();
-    this.apiService = new ApiService();
     this.state = {
       books: [],
-      bookLink: null
+      defaults: [],
+      bookId: null
     }
+    this.restoreDefaults = this.restoreDefaults.bind(this);
   }
-  onBookSelected(bookLink){
+  onBookSelected(bookId){
     this.setState({
-      bookLink: bookLink
+      bookId: bookId
     })
   }
 
   onAddBook(book){
     let bookList = this.state.books
+    book.id = this.state.books.length;
     bookList.push(book);
-    this.apiService.addBook(book);
     this.setState({
       books: bookList
     })
   }
 
   componentDidMount() {
-    this.fetchBookList();
+    this.syncBookList();
+    this.getDefaults();
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
   }
     
-
-  fetchBookList() {
-    let bookList = []
-    this.apiService.fetchBooksList()
-    .then(items => {
-        items.forEach(item => {
-            bookList.push(
-                new Book(item.id, item.link, item.title)
-            )
-        });
-        this.setState({
-            books: bookList
-        })
-    })
+  syncBookList() {
+    this.ref = base.syncState("items", {
+      context: this,
+      state: 'books'
+    });
   }
+
+  getDefaults(){
+    base.syncState("defaults", {
+      context: this,
+      state: 'defaults'
+    });}
+
+  restoreDefaults() {
+    this.setState({ 
+      books: this.state.defaults
+    })
+}
 
   render() {
     return (
@@ -60,10 +68,11 @@ class App extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col col-xs-4 col-xs-offset-1">
-              <BooksList books={this.state.books} bookLink={this.onBookSelected.bind(this)}/>
+              <BooksList books={this.state.books} bookId={this.onBookSelected.bind(this)}/>
+              <button type="button" onClick={this.restoreDefaults} class="btn btn-light">Restore defaults</button>
             </div>
             <div className="col col-xs-4 col-xs-offset-1">
-              <BookDetails bookLink={this.state.bookLink}/>
+              <BookDetails book={this.state.books[this.state.bookId]}/>
             </div>
             <div className="col col-xs-4 col-xs-offset-1">
               <AddBook book={this.onAddBook.bind(this)}/>

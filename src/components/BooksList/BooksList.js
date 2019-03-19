@@ -14,8 +14,8 @@ export class BooksList extends React.Component {
         })
     }
 
-    onBookSelect(bookLink) {
-        this.props.bookLink(bookLink);
+    onBookSelect(bookId) {
+        this.props.bookId(bookId);
     }
 
     render() {
@@ -27,7 +27,7 @@ export class BooksList extends React.Component {
                 <ul className="items">
                     {this.state.books.map((book) => {
                         return (
-                        <li onClick={() => this.onBookSelect(book.link)} className="item" key={book.id}>
+                        <li onClick={() => this.onBookSelect(book.id)} className="item" key={book.id}>
                             {book.title}
                         </li>
                     )
