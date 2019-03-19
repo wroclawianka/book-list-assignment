@@ -1,34 +1,18 @@
 import React from "react";
 import "./BooksList.css";
-import { ApiService } from '../../services/ApiService/ApiService'
-import { Book } from "./Book";
 
 export class BooksList extends React.Component {
 
-    constructor() {
-        super()
-        this.apiService = new ApiService();
-        this.state = { books: []};
+    constructor(props) {
+        super(props)
+        this.state = { books: this.props.books };
     }
 
-    componentDidMount() {
-        this.fetchBookList();
-    }
-    
-    fetchBookList() {
-        let bookList = []
-        this.apiService.fetchBooksList()
-        .then(items => {
-            items.forEach(item => {
-                bookList.push(
-                    new Book(item.id, item.link, item.title)
-                )
-            });
-            this.setState({
-                books: bookList
-            })
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            books: nextProps.books
         })
-      }
+    }
 
     onBookSelect(bookLink) {
         this.props.bookLink(bookLink);
