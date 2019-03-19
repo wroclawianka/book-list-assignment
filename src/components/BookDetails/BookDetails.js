@@ -12,9 +12,17 @@ export class BookDetails extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        this.ref = base.syncState(`/items/${nextProps.bookLink}`, {
-            context: this,
-            state: 'book'
+        if(nextProps.bookLink) this.fetchBookDetails(nextProps.bookLink);
+    }
+
+    fetchBookDetails(bookLink) {
+        this.apiService
+        .fetchBookDetails(bookLink)
+        .then(item => {
+            let newBook = new Book(item.id, item.image, item.title, item.author, item.price.toFixed(2))
+            this.setState({
+                book : newBook 
+            })
         });
     }
 

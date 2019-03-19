@@ -1,26 +1,17 @@
 import React from "react";
 import "./BooksList.css";
-import base from "../../base";
-import { Book } from "./Book";
 
 export class BooksList extends React.Component {
 
-    constructor() {
-        super()
-        this.state = { 
-            books: []
-        };
+    constructor(props) {
+        super(props)
+        this.state = { books: this.props.books };
     }
 
-    componentDidMount() {
-        this.ref = base.syncState("items", {
-            context: this,
-            state: 'books'
-        });
-    }
-
-    componentWillUnmount() {
-        base.removeBinding(this.ref);
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            books: nextProps.books
+        })
     }
 
     onBookSelect(bookLink) {

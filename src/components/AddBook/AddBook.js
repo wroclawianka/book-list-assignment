@@ -1,11 +1,9 @@
 import React from "react";
-import { ApiService } from "../../services/ApiService/ApiService";
 import { Book } from "./Book"
 
 export class AddBook extends React.Component {
     constructor() {
         super();
-        this.apiService = new ApiService();
         this.state = {
             title: '',
             author: '',
@@ -32,9 +30,9 @@ export class AddBook extends React.Component {
         let author = this.state.author;
         let price = parseInt(this.state.price, 10);
         let book = new Book(image, title, author, price);
-        this.apiService.addBook(book);
+        this.props.book(book);
     }
-    
+
     render() {
         return (
         <div className="section">
