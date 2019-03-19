@@ -13,7 +13,7 @@ export class BookDetails extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        this.fetchBookDetails(nextProps.bookLink);
+        if(nextProps.bookLink) this.fetchBookDetails(nextProps.bookLink);
     }
 
     fetchBookDetails(bookLink) {
