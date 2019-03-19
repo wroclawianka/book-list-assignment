@@ -10,12 +10,12 @@ class App extends React.Component {
     super();
     this.state = {
       books: [],
-      bookLink: null
+      bookId: null
     }
   }
-  onBookSelected(bookLink){
+  onBookSelected(bookId){
     this.setState({
-      bookLink: bookLink
+      bookId: bookId
     })
   }
 
@@ -50,10 +50,10 @@ class App extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col col-xs-4 col-xs-offset-1">
-              <BooksList books={this.state.books} bookLink={this.onBookSelected.bind(this)}/>
+              <BooksList books={this.state.books} bookId={this.onBookSelected.bind(this)}/>
             </div>
             <div className="col col-xs-4 col-xs-offset-1">
-              <BookDetails bookLink={this.state.bookLink}/>
+              <BookDetails book={this.state.books[this.state.bookId]}/>
             </div>
             <div className="col col-xs-4 col-xs-offset-1">
               <AddBook book={this.onAddBook.bind(this)}/>
