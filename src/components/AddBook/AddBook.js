@@ -1,11 +1,9 @@
 import React from "react";
-import { ApiService } from "../../services/ApiService/ApiService";
 import { Book } from "./Book"
 
 export class AddBook extends React.Component {
     constructor() {
         super();
-        this.apiService = new ApiService();
         this.state = {
             title: '',
             author: '',
