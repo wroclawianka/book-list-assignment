@@ -10,8 +10,10 @@ class App extends React.Component {
     super();
     this.state = {
       books: [],
+      defaults: [],
       bookId: null
     }
+    this.restoreDefaults = this.restoreDefaults.bind(this);
   }
   onBookSelected(bookId){
     this.setState({
@@ -28,16 +30,32 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchBookList();
+    this.syncBookList();
+    this.getDefaults();
+  }
+
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
   }
     
-
-  fetchBookList() {
+  syncBookList() {
     this.ref = base.syncState("items", {
       context: this,
       state: 'books'
     });
   }
+
+  getDefaults(){
+    base.syncState("defaults", {
+      context: this,
+      state: 'defaults'
+    });}
+
+  restoreDefaults() {
+    this.setState({ 
+      books: this.state.defaults
+    })
+}
 
   render() {
     return (
@@ -50,6 +68,7 @@ class App extends React.Component {
           <div className="row">
             <div className="col col-xs-4 col-xs-offset-1">
               <BooksList books={this.state.books} bookId={this.onBookSelected.bind(this)}/>
+              <button type="button" onClick={this.restoreDefaults} class="btn btn-light">Restore defaults</button>
             </div>
             <div className="col col-xs-4 col-xs-offset-1">
               <BookDetails book={this.state.books[this.state.bookId]}/>
