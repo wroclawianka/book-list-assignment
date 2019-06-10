@@ -4,6 +4,7 @@ import base from "../../base";
 import { BooksList } from "./../BooksList/BooksList";
 import { BookDetails } from "./../BookDetails/BookDetails";
 import { AddBook } from "./../AddBook/AddBook";
+import {Footer} from "../Footer/Footer";
 
 class App extends React.Component {
   constructor()  {
@@ -79,6 +80,7 @@ class App extends React.Component {
             </div>
           </div>
         </div>
+        <Footer/>
       </div>
     );
   }
