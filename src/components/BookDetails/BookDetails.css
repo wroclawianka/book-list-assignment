@@ -6,6 +6,23 @@ img {
     display: inline-block
 }
 
-.price { 
+.info-display {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 40%;
+    grid-template-areas: "title price" "author price";
+}
+
+.title {
+    grid-area: title
+}
+
+.author {
+    grid-area: author
+}
+
+.price {
     font-size: 150%;
+    grid-area: price;
+    text-align: center;
 }

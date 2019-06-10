@@ -24,10 +24,12 @@ export class BookDetails extends React.Component {
         <p>Please, select the book to display</p>
         );
         let details = (
-        <div> 
-            <h4 className="title">{this.state.book.title}</h4>
-            <p className="author">{this.state.book.author}</p>
-            <p className="price">{this.state.book.price}</p>
+        <div className="book-display">
+            <div className="info-display">
+                <h4 className="title">{this.state.book.title}</h4>
+                <p className="author">{this.state.book.author}</p>
+                <p className="price">{this.state.book.price}</p>
+            </div>
             <div><img src={this.state.book.image} alt={this.state.book.title}/></div>     
         </div>)
         let content = (this.state.book === '') ? selectTheBook : details; 
