@@ -12,7 +12,8 @@ class App extends React.Component {
     this.state = {
       books: [],
       defaults: [],
-      bookId: null
+      bookId: null,
+      currency:"€"
     }
     this.restoreDefaults = this.restoreDefaults.bind(this);
   }
@@ -73,7 +74,10 @@ class App extends React.Component {
               <button type="button" onClick={this.restoreDefaults} class="btn btn-light">Restore defaults</button>
             </div>
             <div className="col col-xs-4 col-xs-offset-1">
-              <BookDetails book={this.state.books[this.state.bookId]}/>
+              <BookDetails
+                  book={this.state.books[this.state.bookId]}
+                  currency={this.state.currency}
+              />
             </div>
             <div className="col col-xs-4 col-xs-offset-1">
               <AddBook book={this.onAddBook.bind(this)}/>

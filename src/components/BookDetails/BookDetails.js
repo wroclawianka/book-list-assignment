@@ -14,7 +14,8 @@ export class BookDetails extends React.Component {
     componentWillReceiveProps(nextProps) {
         if(nextProps.book){
             this.state = {
-                book : nextProps.book
+                book : nextProps.book,
+                currency: nextProps.currency
             }
         }
     }
@@ -28,7 +29,7 @@ export class BookDetails extends React.Component {
             <div className="info-display">
                 <h4 className="title">{this.state.book.title}</h4>
                 <p className="author">{this.state.book.author}</p>
-                <p className="price">{this.state.book.price}</p>
+                <p className="price">{this.state.book.price} {this.state.currency}</p>
             </div>
             <div><img src={this.state.book.image} alt={this.state.book.title}/></div>     
         </div>)
