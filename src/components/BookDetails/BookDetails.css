@@ -10,7 +10,7 @@ img {
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 40%;
-    grid-template-areas: "title price" "author price";
+    grid-template-areas: "title title" "author price";
 }
 
 .title {
@@ -22,7 +22,7 @@ img {
 }
 
 .price {
-    font-size: 150%;
+    font-size: 110%;
     grid-area: price;
-    text-align: center;
+    text-align: right;
 }
