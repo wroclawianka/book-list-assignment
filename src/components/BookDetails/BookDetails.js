@@ -1,7 +1,5 @@
 import React from "react";
 import "./BookDetails.css"
-import base from "../../base";
-import { Book } from "./Book";
 
 export class BookDetails extends React.Component {
     constructor(props) {
