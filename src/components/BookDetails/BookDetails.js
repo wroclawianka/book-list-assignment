@@ -1,7 +1,5 @@
 import React from "react";
 import "./BookDetails.css"
-import base from "../../base";
-import { Book } from "./Book";
 
 export class BookDetails extends React.Component {
     constructor(props) {
@@ -14,7 +12,8 @@ export class BookDetails extends React.Component {
     componentWillReceiveProps(nextProps) {
         if(nextProps.book){
             this.state = {
-                book : nextProps.book
+                book : nextProps.book,
+                currency: nextProps.currency
             }
         }
     }
@@ -24,10 +23,12 @@ export class BookDetails extends React.Component {
         <p>Please, select the book to display</p>
         );
         let details = (
-        <div> 
-            <h4 className="title">{this.state.book.title}</h4>
-            <p className="author">{this.state.book.author}</p>
-            <p className="price">{this.state.book.price}</p>
+        <div className="book-display">
+            <div className="info-display">
+                <h4 className="title">{this.state.book.title}</h4>
+                <p className="author">{this.state.book.author}</p>
+                <p className="price">{this.state.book.price} {this.state.currency}</p>
+            </div>
             <div><img src={this.state.book.image} alt={this.state.book.title}/></div>     
         </div>)
         let content = (this.state.book === '') ? selectTheBook : details; 

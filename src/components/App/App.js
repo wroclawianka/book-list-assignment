@@ -4,6 +4,7 @@ import base from "../../base";
 import { BooksList } from "./../BooksList/BooksList";
 import { BookDetails } from "./../BookDetails/BookDetails";
 import { AddBook } from "./../AddBook/AddBook";
+import {Footer} from "../Footer/Footer";
 
 class App extends React.Component {
   constructor()  {
@@ -11,7 +12,8 @@ class App extends React.Component {
     this.state = {
       books: [],
       defaults: [],
-      bookId: null
+      bookId: null,
+      currency:"€"
     }
     this.restoreDefaults = this.restoreDefaults.bind(this);
   }
@@ -72,13 +74,17 @@ class App extends React.Component {
               <button type="button" onClick={this.restoreDefaults} class="btn btn-light">Restore defaults</button>
             </div>
             <div className="col col-xs-4 col-xs-offset-1">
-              <BookDetails book={this.state.books[this.state.bookId]}/>
+              <BookDetails
+                  book={this.state.books[this.state.bookId]}
+                  currency={this.state.currency}
+              />
             </div>
             <div className="col col-xs-4 col-xs-offset-1">
               <AddBook book={this.onAddBook.bind(this)}/>
             </div>
           </div>
         </div>
+        <Footer/>
       </div>
     );
   }
